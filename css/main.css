@@ -2,9 +2,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-smoothing: grayscale;
+}
+
+p {
+    font-family: 'Opens Sans', sans-serif;
 }
 
 @media screen and (min-width: 320px){
+    /* --- estilo de topbar ---*/
     .jl-page-wrapper {
         width: 100%;
         height: 100vh;
@@ -18,16 +25,20 @@
         height: 110px;
         display: block;
         background-color: transparent;
-        position: fixed;    /*fica fixado no topo*/
+        /* --- fica fixado no topo --- */
+        position: fixed;
         top: 0;
         left: 0;
+        /* --- fica fixado no topo --- */
     }
 
     .jl-logo {
         width: 74px;
         height: 110px;
+
         float: left;
         margin-left: 60px;
+        
         background-color: #2CCB69;
         border-radius: 0 0 37px 0;
     }
@@ -38,6 +49,105 @@
         display: block;
         margin: 55px auto 0 auto;
     }
+
+    .jl-menu {
+        display: none;
+    }
+
+    /* --- estilo de contatos ---*/
+    .jl-btn-contact {
+        width: 45px;
+        height: 45px;
+        display: block;
+
+        background-color: #2CCB69;
+        background-image: url('../images/icon-contact-close.svg');
+        background-repeat: no-repeat;   /*nao deixa repetir imagem*/
+
+        position: fixed;
+        bottom: 45px;
+        right: 45px;
+
+        border-radius: 50%;
+        z-index: 200;
+
+        transition: all .2s ease-out;
+    }
+
+    .jl-btn-contact:hover {
+        background-position-y: -45px;
+        cursor: pointer;
+    }
+
+    /* caixa de contatos fixo no canto inferior direito */
+    .jl-contact-info {
+        width: 245px;
+        height: 165px;
+
+        padding: 25px;
+
+        position: fixed;
+        bottom: 115px;
+        right: 65px;
+        z-index: 200;
+    }
+
+    .jl-contact-info-inner {
+        display: table;
+        width: 100%;
+        float: right;
+    }
+
+    .jl-contact-info-inner p {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .jl-corner {
+        width: 25px;
+        height: 25px;
+        display: block;
+        float: right;
+        /* display: relative; */
+    }
+
+    .jl-corner:after {
+        content: '';
+        width: 25px;
+        height: 25px;
+        display: block;
+
+        position: absolute;
+        bottom: -19px;
+        right: -1px;
+        background: transparent url('../images/corner.svg') no-repeat;
+    }
+
+    .jl-social-links {
+        width: 100%;
+        height: 45px;
+        display: block;
+
+        position: relative;
+        left: -12px;
+
+        margin-top: 7px;
+    }
+
+    .jl-social {
+        width: 45px;
+        height: 45px;
+        display: inline-block;
+    }
+
+    .jl-social > img {
+        width: 20px;
+        height: auto;
+        display: block;
+        margin: 13px auto 0;
+
+    }
+
 }
 
 @media screen and (min-width: 576px){
@@ -49,7 +159,57 @@
 }
 
 @media screen and (min-width: 992px){
-    
+    /* --- estilo de topbar ---*/
+    .jl-menu {
+        display: table;
+        float: left;
+        height: 110px;
+        background-color: transparent;
+        margin-left: 30px;
+    }
+
+    .jl-menu a {
+        font-family: 'Open Sans';
+        font-size: 16px;
+        color: #bcbcbc;
+        text-decoration: none;
+        text-transform: lowercase;
+
+        display: inline-block;
+        margin: 50px 20px 0 20px;
+        font-weight: 400;
+        
+        position: relative; /*util efeito hover verde*/
+    }
+
+    .jl-menu a:first-child {
+        margin-left: 0;
+    }
+
+    .jl-menu a:hover {
+        color: #2CCB69;
+    }
+
+    .jl-menu a:before {
+        content: '';
+        width: 100%;
+        height: 4px;
+        background-color: #2CCB69;
+
+        display: block;
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+
+        transition: all .2s ease-out;
+        /*faz efeito de anim bottom verde*/
+        transform: scale(0, 1);
+        transform-origin: center left;
+    }
+
+    .jl-menu a:hover:before {
+        transform: scale(1, 1); /*faz efeito de anim bottom verde*/
+    }
 }
 
 @media screen and (min-width: 1200px){
@@ -62,4 +222,47 @@
 
 @media screen and (min-width: 1600px){
     
+}
+
+/* CLASSES UTILITARIAS */
+
+/* fontes dos textos */
+.jl-title {
+    font-family: 'Abril Fatface', serif;
+    font-weight: normal;
+}
+
+/* cor dos textos */
+.jl-text-green {
+    color: #2CCB69;
+}
+
+.jl-text-dark {
+    color: #4D4C4C;
+}
+
+.jl-text-light {
+    color: #bcbcbc;
+}
+
+.jl-text-black {
+    color: #000;
+}
+
+/* cor de backgrounds */
+
+.jl-bg-green {
+    background-color: #2CCB69;
+}
+
+.jl-bg-dark {
+    background-color: #4D4C4C;
+}
+
+.jl-bg-light {
+    background-color: #bcbcbc;
+}
+
+.jl-bg-black {
+    background-color: #000;
 }
