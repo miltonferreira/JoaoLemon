@@ -5,10 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans:400,400i,700,700i,800,800i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <title>João Lemon - UX/UI Designer</title>
 </head>
 <body>
+    <!-- preloader do site -->
+    <div class="jl-preloader">
+        <div class="jl-preloader-inner">
+            <img class="jl-mar-bottom-15" src="images/lemon-loader.svg" alt="Logo do Joao Lemon">
+            <p class="jl-text-light jl-mar-top-15 jl-text-align-center">Aguarde... Estou preparando a limonada</p>
+        </div>
+    </div>
     <!-- conteudo de topbar -->
     <header class="jl-topbar">
         <div class="jl-logo">
@@ -40,11 +48,33 @@
         </div>
         <div class="jl-corner"></div>
     </div>
-    <div class="jl-btn-contact">
-
-    </div>
+    <button class="jl-btn-contact"></button>
+    <!-- Corpo da página -->
     <div class="jl-page-wrapper">
+        <section id="jl-home-presentation" class="jl-full-height jl-first-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-3 offset-md-1 jl-display-text">
+                        <h1 class="jl-title jl-text-green jl-title-big">Olá!</h1>
+                        <p class="jl-text-light">Meu nome é <span class="jl-text-green">João Lemon</span>, sou designer
+                             de <span class="jl-text-green">UX e UI</span>. Nulla vulputate, ex in tincidunt consequat, 
+                             dui metus luctus purus, ut dapibus quam augue sit amet leo.
+                              Phasellus sit amet purus in elit efficitur viverra.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="jl-scroll-down">
+                <div class="jl-arrow-down">
+                    <img src="images/arrow-down.svg" alt="Scroll da página">
+                </div>
+            </div>
+        </section>
 
+        <section class="jl-full-height">
+            
+        </section>
     </div>
+    <script src="js/main.js"></script>
 </body>
 </html>

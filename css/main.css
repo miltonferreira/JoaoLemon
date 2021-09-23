@@ -10,14 +10,89 @@ p {
     font-family: 'Opens Sans', sans-serif;
 }
 
+/* ANIMAÇÕES */
+
+@keyframes fadeOut {
+    /* Animação do Preloader */
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes lineDown {
+    /* Animação do corpo da seta do scroll down */
+    0% {
+        transform: scale(1, 0);
+        transform-origin: top center;
+    }
+
+    25% {
+        transform: scale(1,1);
+        transform-origin: top center;
+    }
+
+    75% {
+        transform: scale(1,1);
+        transform-origin: top center;
+    }
+
+    76% {
+        transform: scale(1,1);
+        transform-origin: bottom center;
+    }
+
+    100% {
+        transform: scale(1,0);
+        transform-origin: bottom center;
+    }
+
+}
+
+@keyframes arrowDown {
+    0% {
+        bottom: 18px;
+    }
+
+    30% {
+        bottom: 15px;
+        opacity: 1;
+    }
+
+    70% {
+        bottom: 10px;
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 3px;
+        opacity: 0;
+    }
+}
+
 @media screen and (min-width: 320px){
     /* --- estilo de topbar ---*/
-    .jl-page-wrapper {
+    .jl-page-wrapper, .jl-preloader {
         width: 100%;
         height: 100vh;
-        display: block;
+        display: table;
         background-color: #1C1C1C;
         border: 30px solid #000;
+    }
+
+    .jl-preloader {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .jl-preloader-inner {
+        margin-top: -45px;
     }
 
     .jl-topbar {
@@ -30,6 +105,8 @@ p {
         top: 0;
         left: 0;
         /* --- fica fixado no topo --- */
+
+        z-index: 10 /*Coloca o Menu a frente dos elementos*/
     }
 
     .jl-logo {
@@ -64,29 +141,35 @@ p {
         background-image: url('../images/icon-contact-close.svg');
         background-repeat: no-repeat;   /*nao deixa repetir imagem*/
 
+        /*Mantem fixo na tela*/
         position: fixed;
         bottom: 45px;
         right: 45px;
+        /*Mantem fixo na tela*/
 
         border-radius: 50%;
         z-index: 200;
 
         transition: all .2s ease-out;
-    }
 
-    .jl-btn-contact:hover {
-        background-position-y: -45px;
+        border: none;
         cursor: pointer;
     }
 
+    
+
     /* caixa de contatos fixo no canto inferior direito */
     .jl-contact-info {
+
+        display: none;
+
         width: 245px;
         height: 165px;
 
         padding: 25px;
 
         position: fixed;
+        
         bottom: 115px;
         right: 65px;
         z-index: 200;
@@ -112,6 +195,7 @@ p {
     }
 
     .jl-corner:after {
+        /* cria a ponta final do painel de contatos*/
         content: '';
         width: 25px;
         height: 25px;
@@ -146,6 +230,81 @@ p {
         display: block;
         margin: 13px auto 0;
 
+    }
+
+    /*--- HOME ---*/
+    .jl-display-text {
+        margin-top: 10%;
+    }
+
+    #jl-home-presentation {
+        background-image: url('../images/joao-lemon-designer-home.png');
+        background-repeat: no-repeat;
+        background-position: 50% bottom;
+        background-size: contain;
+        position: relative; /* div pai do jl-scroll-down*/
+    }
+
+    /*--- Scroll da Página ---*/
+    .jl-scroll-down {
+        width: 70px;
+        height: 105px;
+        border-radius: 35px 35px 0 0;
+        background-color: #2CCB69;
+        display: block;
+        
+        /* faz centralizar no canto inferior */
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 100;
+    }
+
+    .jl-arrow-down {
+        width: 100%;
+        height: 75px;
+        display: table;
+        margin-top: 30px;
+        position: relative;
+    }
+    
+    /* img da arrow */
+    .jl-arrow-down img {
+        width: 16px;
+        height: 10px;
+        display: block;
+        
+        /* faz centralizar no canto inferior */
+        position: absolute;
+        bottom: 25px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+
+        opacity: 0;
+        animation: arrowDown 1s linear 0.7s infinite;
+    }
+
+    /* faz linha da arrow depois de desenha arrow */
+    .jl-arrow-down:before {
+        content: '';
+        width: 2px;
+        height: 45px;
+        background-color: #000;
+
+        display: block;
+
+        position: absolute;
+        bottom: 25px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+
+        /*Animação do corpo da seta*/
+        animation: lineDown 1s ease-out infinite;
+        transform-origin: top center;
     }
 
 }
@@ -232,6 +391,16 @@ p {
     font-weight: normal;
 }
 
+.jl-title-big {
+    font-size: 100px;
+}
+
+/* alinhamentos dos textos */
+
+.jl-text-align-center {
+    text-align: center;
+}
+
 /* cor dos textos */
 .jl-text-green {
     color: #2CCB69;
@@ -265,4 +434,73 @@ p {
 
 .jl-bg-black {
     background-color: #000;
+}
+
+/* margens */
+
+.jl-mar-15 {
+    margin: 15px;
+}
+
+.jl-mar-top-15 {
+    margin-top: 15px;
+}
+
+.jl-mar-right-15 {
+    margin-right: 15px;
+}
+
+.jl-mar-bottom-15 {
+    margin-bottom: 15px;
+}
+
+.jl-mar-left-15 {
+    margin-left: 15px;
+}
+
+/* paddings */
+
+.jl-pad-15 {
+    padding: 15px;
+}
+
+.jl-pad-top-15 {
+    padding-top: 15px;
+}
+
+.jl-pad-right-15 {
+    padding-right: 15px;
+}
+
+.jl-pad-bottom-15 {
+    padding-bottom: 15px;
+}
+
+.jl-pad-left-15 {
+    padding-left: 15px;
+}
+
+.jl-full-height {
+    height: 100vh;
+    
+}
+
+.jl-first-section {
+    /* FIX - subtrai 30px do vh */
+    height: calc(100vh - 30px);
+}
+
+/* CLASSES DE COMPORTAMENTOS */
+
+.jl-is-open {
+    display: block;
+}
+
+.jl-change-icon {
+    background-position-y: -45px;
+}
+
+/* Preloader */
+.jl-fade-out {
+    animation: fadeOut 2s forwards ease-out;
 }
