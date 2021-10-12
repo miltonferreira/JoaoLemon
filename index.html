@@ -30,10 +30,44 @@
             </button>
         </div>
         <div class="jl-modal-body">
-            <p class="jl-text-light">Por favor informe os dados abaixo e eu entrarei em contato com você o mais breve possivel.</p>
-            <form class="jl-form">
-                <input id="jl-nome" class="jl-field" type="text" name="Nome"/>
-            </form>
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="jl-text-light">Por favor informe os dados abaixo e eu entrarei em contato com você o mais breve possivel.</p>
+                </div>
+            </div>
+            <div class="row jl-mar-top-15">
+                <div class="col-sm-12">
+                    <form class="jl-form">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 jl-mar-bottom-15">
+                                <label for="Nome" class="jl-text-light">Nome</label>
+                                <input id="jl-nome" class="jl-field" type="text" name="Nome"/>
+                            </div>
+                            <div class="col-sm-12 col-md-6 jl-mar-bottom-15">
+                                <label for="Email" class="jl-text-light">Email</label>
+                                <input id="jl-email" class="jl-field" type="email" name="Email"/>
+                            </div>
+                            <div class="col-sm-12 col-md-6 jl-mar-bottom-15">
+                                <label for="Telefone" class="jl-text-light">Telefone</label>
+                                <input id="jl-telefone" class="jl-field" type="tel" name="Telefone"/>
+                            </div>
+                            <div class="col-sm-12 col-md-6 jl-mar-bottom-15">
+                                <label for="Site" class="jl-text-light">Site</label>
+                                <input id="jl-site" class="jl-field" type="text" name="Site"/>
+                            </div>
+                            <div class="col-sm-12 col-md-12 jl-mar-top-15 jl-mar-bottom-15">
+                                <label for="Mensagem" class="jl-text-light">Descreva abaixo o projeto na qual você deseja fazer orçamento:</label>
+                                <textarea id="jl-mensagem" class="jl-textarea" rows="8" name="Mensagem"></textarea>
+                            </div>
+                        </div>
+                        <div class="row justify-content-end jl-mar-top-15">
+                            <div class="col-sm-12 col-md-6">
+                                <button class="jl-btn jl-btn-large jl-btn-green jl-btn-block">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <!-- conteudo de topbar -->
