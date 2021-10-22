@@ -18,14 +18,14 @@
         </div>
     </div>
     <!-- overlay verde -->
-    <div class="jl-overlay"></div>
+    <div class="jl-overlay jl-toggle-modal"></div>
     <!-- modal-->
-    <div class="jl-modal jl-bg-black">
+    <div id="jl-modal-orcamento" class="jl-modal jl-bg-black">
         <div class="jl-modal-header">
             <h1 class="jl-title jl-text-green">
                 Solicite um orçamento
             </h1>
-            <button class="jl-close-modal">
+            <button class="jl-close-modal jl-toggle-modal">
                 X
             </button>
         </div>
@@ -77,7 +77,7 @@
         </div>
         <nav class="jl-menu">
             <a href="#">Home</a>
-            <a href="#">Projetos</a>
+            <a href="#">Portfolio</a>
             <a href="#">Sobre</a>
         </nav>
     </header>
@@ -114,7 +114,7 @@
                              dui metus luctus purus, ut dapibus quam augue sit amet leo.
                               Phasellus sit amet purus in elit efficitur viverra.
                         </p>
-                        <button class="jl-btn jl-btn-large jl-btn-green jl-mar-top-15">Solicite um orçamento</button>
+                        <button class="jl-btn jl-btn-large jl-btn-green jl-mar-top-15 jl-toggle-modal">Solicite um orçamento</button>
                     </div>
                 </div>
             </div>
@@ -125,10 +125,17 @@
             </div>
         </section>
 
-        <section class="jl-full-height">
-            
+        <section id="jl-home-portfolio" class="jl-full-height">
+            <div class="container-fluid jl-no-padding">
+                <div class="row">
+                    <div class="col-sm-1">Hi</div>
+                </div>
+            </div>
         </section>
     </div>
+    <!-- sistema de waypoints para scroll: http://imakewebthings.com/waypoints/ | https://cdnjs.com/libraries/waypoints/4.0.1 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/shortcuts/inview.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

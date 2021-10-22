@@ -19,6 +19,13 @@ p, label {
     }
 }
 
+@keyframes slideTopIn{  /*https://cubic-bezier.com/#.17,.67,.83,.67*/
+    to {
+        top: 15%;
+        opacity: 1;
+    }
+}
+
 @keyframes lineDown {
     /* Animação do corpo da seta do scroll down */
     0% {
@@ -98,7 +105,7 @@ p, label {
     .jl-overlay {
         width: 100%;
         height: 100vh;
-        display: block;
+        display: none;
 
         position: fixed;
         z-index: 1000;
@@ -113,20 +120,20 @@ p, label {
     .jl-modal {
         width: 800px;
 
-        display: table;     /*table para alinhar o modal*/
+        display: none;     /*table para alinhar o modal*/
         
         padding: 30px;
         border-radius: 0 30px 30px 30px;
 
         position: fixed;
-        top: 15%;
+        top: -100%;     /*faz modal fica fora da tela*/
 
         left: 0;
         right: 0;
         margin: 0 auto;
 
         z-index: 1200;
-
+        opacity: 0;
     }
 
     /*------------ Modal Header -------------*/
@@ -643,10 +650,18 @@ p, label {
     height: calc(100vh - 30px);
 }
 
+.jl-no-padding {
+    padding: 0!important;
+}
+
 /* CLASSES DE COMPORTAMENTOS */
 
 .jl-is-open {
     display: block;
+}
+
+.jl-slide-top-in {  /*faz animação do modal descendo*/
+    animation: slideTopIn 0.6s forwards cubic-bezier(0,1.11,.6,.89);
 }
 
 .jl-change-icon {
