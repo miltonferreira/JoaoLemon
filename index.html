@@ -128,7 +128,57 @@
         <section id="jl-home-portfolio" class="jl-full-height">
             <div class="container-fluid jl-no-padding">
                 <div class="row">
-                    <div class="col-sm-1">Hi</div>
+                    <!-- Navegação -->
+                    <div class="col-sm-2">
+                        <div class="jl-portfolio-navigator">
+                            <div class="jl-navigator-counter">
+                                <span class="jl-text-green">01</span>
+                            </div>
+                            <nav class="jl-item-navigator">
+                                <a href="#" class="jl-item-active"></a>
+                                <a href="#"></a>
+                                <a href="#"></a>
+                                <a href="#"></a>
+                                <a href="#"></a>
+                            </nav>
+                            <!-- Cria botões de navegação -->
+                            <div class="jl-items-next-prev jl-no-radius-left">
+                                <div class="jl-item-prev">
+                                    <ion-icon name="caret-back"></ion-icon>
+                                </div>
+                                <div class="jl-items-counter">
+                                    <span class="jl-current-slide">01</span>
+                                    /
+                                    <span class="jl-total-slide">05</span>
+                                </div>
+                                <div class="jl-item-next">
+                                    <ion-icon name="caret-forward"></ion-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sliders-->
+                    <div class="col-sm-10">
+                        <div class="jl-slider-container jl-full-height">
+                            <ul class="jl-slider-list">
+                                <li class="jl-slider-item red">
+
+                                </li>
+                                <li class="jl-slider-item yellow">
+
+                                </li>
+                                <li class="jl-slider-item blue">
+
+                                </li>
+                                <li class="jl-slider-item purple">
+
+                                </li>
+                                <li class="jl-slider-item green">
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -136,6 +186,14 @@
     <!-- sistema de waypoints para scroll: http://imakewebthings.com/waypoints/ | https://cdnjs.com/libraries/waypoints/4.0.1 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/shortcuts/inview.min.js"></script>
+    <!-- sistema de icones: https://ionic.io/ionicons/usage -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- sistema de animação dos sliders: https://animejs.com/ -->
+    <script src="js/anime.min.js"></script>
+    <!-- Sliders -->
+    <script src="js/slider.js"></script>
+    <!-- js do projeto -->
     <script src="js/main.js"></script>
 </body>
 </html>
