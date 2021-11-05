@@ -83,7 +83,7 @@ p, label {
         height: 100vh;
         display: table;
         background-color: #1C1C1C;
-        border: 30px solid #000;
+        border: 25px solid #000;
     }
 
     .jl-preloader {
@@ -449,7 +449,6 @@ p, label {
     }
 
     .jl-item-navigator a.jl-item-active {
-        width: 90px;
         background-color: #2CCB69;
     }
 
@@ -495,18 +494,16 @@ p, label {
     }
 
     /* Sliders */
-    .jl-slider-container {
-        background-color: white;
+    .jl-slider-container {  /* container dos sliders*/
         display: block;
         overflow: hidden;   /*Tira rolagem lateral por ter itens na horizontal*/
     }
 
-    .jl-slider-list {
+    .jl-slider-list {   /* lista dos sliders*/
         width: auto;
         height: 700px;
 
         display: block;
-        background-color: deeppink;
         list-style: none;
     }
 
@@ -514,6 +511,32 @@ p, label {
         display: block;
         height: 500px;
         float: left;
+
+        margin-top:  calc(26vh - 75px); /*pra funcionar pai tem que ter altura definida*/
+    }
+
+    .jl-portfolio-item-info {
+        width: 100%;
+        display: table; /* assume o tamanho do conteudo dentro dele*/
+        margin-top: 57px;
+    }
+
+    .jl-portfolio-item-thumb {
+        width: 100%;
+        background-color: #2C2C2C;
+        display: table;
+        padding: 65px 0;
+    }
+
+    .jl-portfolio-item-thumb img {
+        /* torna a imagem responsiva */
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+
+        position: relative;
+
+        left: -25px;
     }
 
 }
@@ -669,7 +692,11 @@ p, label {
     font-weight: normal;
 }
 
-.jl-title-big {
+.jl-title-large {
+    font-size: 64px;
+}
+
+.jl-title-xlarge {
     font-size: 100px;
 }
 
@@ -756,6 +783,50 @@ p, label {
 
 .jl-pad-left-15 {
     padding-left: 15px;
+}
+
+/* margens 30 */
+
+.jl-mar-30 {
+    margin: 30px;
+}
+
+.jl-mar-top-30 {
+    margin-top: 30px;
+}
+
+.jl-mar-right-30 {
+    margin-right: 30px;
+}
+
+.jl-mar-bottom-30 {
+    margin-bottom: 30px;
+}
+
+.jl-mar-left-30 {
+    margin-left: 30px;
+}
+
+/* paddings 30*/
+
+.jl-pad-30 {
+    padding: 30px;
+}
+
+.jl-pad-top-30 {
+    padding-top: 30px;
+}
+
+.jl-pad-right-30 {
+    padding-right: 30px;
+}
+
+.jl-pad-bottom-30 {
+    padding-bottom: 30px;
+}
+
+.jl-pad-left-30 {
+    padding-left: 30px;
 }
 
 .jl-full-height {

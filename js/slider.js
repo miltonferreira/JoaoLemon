@@ -18,6 +18,9 @@ var nextItem = document.querySelector('.jl-item-next');
 var sliderPos = 0;  // pega tamanho do container dos sliders
 var currentSlide = document.querySelector('.jl-current-slide');
 var totalSlide = document.querySelector('.jl-total-slide');
+var currentCounter = 1;
+var navItems = document.querySelectorAll('.jl-item-navigator a');
+var navCounter = document.querySelector('.jl-navigator-counter span');
 
 // passa larguras dinamicas
 
@@ -70,18 +73,79 @@ var counterFormatter = (n)=> {
     }
 }
 
+//Counter Add
+var counterAdd = ()=> {
+    if(currentCounter >= 0 && currentCounter < sliderTotalItems)
+        currentCounter++
+        currentSlide.innerHTML = counterFormatter(currentCounter);
+
+        navCounter.innerHTML = counterFormatter(currentCounter);    // mostra no contador dos slider
+}
+
+//Counter Remove
+var counterRemove = ()=> {
+    if(currentCounter > 1 && currentCounter <= sliderTotalItems)
+        currentCounter--;
+        currentSlide.innerHTML = counterFormatter(currentCounter);
+        
+        navCounter.innerHTML = counterFormatter(currentCounter);    // mostra no contador dos slider
+}
+
+//Set Active Nave
+
+var setActiveNav = ()=>{
+    for(var nv = 0; nv < navItems.length; nv++){
+        let myNavNum = parseInt(navItems[nv].getAttribute('data-nav'));
+        if(myNavNum === currentCounter){
+            navItems[nv].classList.add('jl-item-active');
+
+            anime({
+                targets: '.jl-item-active',
+                width: 90
+            });
+        }
+    }
+}
+
+var changeActive = ()=>{
+    for(var rm = 0; rm < navItems.length; rm++){
+        
+        // diminui tamanho da linha do slide ativo
+        anime({
+            targets: '.jl-item-active',
+            width: 20
+        });
+
+        navItems[rm].classList.remove('jl-item-active');
+    }
+
+    setActiveNav(); 
+}
+
 //ACTIONS
+
+// anima primeira linha do slide ativo
+anime({
+    targets: '.jl-item-active',
+    width: 90
+});
 
 totalSlide.innerHTML = counterFormatter(sliderTotalItems);
 
 // faz sliders irem pra esquerda
 nextItem.addEventListener('click', ()=>{
-    nextSlideAnim();   // faz slide ir pra esquerda
+
+    nextSlideAnim();    // faz slide ir pra esquerda
+    counterAdd();       // contador dos sliders
+    changeActive();     // mostra o slide ativo
 
 });
 
 // faz sliders irem pra direita
 prevItem.addEventListener('click', ()=>{
+
     prevSlideAnim();    // faz slide ir pra direita
+    counterRemove();    // contador dos sliders
+    changeActive();     // mostra o slide ativo
     
 });
