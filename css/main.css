@@ -19,10 +19,29 @@ p, label {
     }
 }
 
+@keyframes fadeFromLeft {
+    to {
+        left: 0;
+        opacity: 1;
+    }
+}
+
 @keyframes slideTopIn{  /*https://cubic-bezier.com/#.17,.67,.83,.67*/
     to {
         top: 15%;
         opacity: 1;
+    }
+}
+
+@keyframes scaleRight{  
+    to {
+        transform: scaleX(1)
+    }
+}
+
+@keyframes scaleUp{  
+    to {
+        transform: scale(1)
     }
 }
 
@@ -516,16 +535,27 @@ p, label {
     }
 
     .jl-portfolio-item-info {
-        width: 100%;
+        width: calc(100% - 75px);
         display: table; /* assume o tamanho do conteudo dentro dele*/
         margin-top: 57px;
+
+        position: relative; /* relativo ao pai*/
+        left: -75px;
+
+        opacity: 0;
     }
 
     .jl-portfolio-item-thumb {
         width: 100%;
-        background-color: #2C2C2C;
         display: table;
-        padding: 65px 0;
+        padding: 65px 0 19px 0;
+        position: relative; /* relativo ao pai*/
+    }
+
+    .jl-portfolio-item-thumb > button {
+        margin-top: 17px;
+        margin-right: 25px;
+        float: right;
     }
 
     .jl-portfolio-item-thumb img {
@@ -537,6 +567,22 @@ p, label {
         position: relative;
 
         left: -25px;
+
+        transform: scale(0);
+    }
+
+    .jl-portfolio-item-box {
+        width: 100%;
+        height: 100%;
+        display: block;
+        background-color: #2C2C2C;
+
+        position: absolute; /* ??? */
+        top: 0;
+        left: 0;
+
+        transform: scaleX(0);
+        transform-origin: right;    /* começa animação da direita pra esquerda */
     }
 
 }
@@ -633,6 +679,17 @@ p, label {
 
     cursor: pointer;
     /* margin: 0 auto; */
+
+    position: relative;
+}
+
+.jl-btn ion-icon {
+    font-size: 21px;
+    /* alinha o icon do botao */
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-top: -7px;
 }
 
 .jl-btn-block {
@@ -642,6 +699,7 @@ p, label {
 
 .jl-btn-small {
     height: 28px;
+    line-height: 28px;
     padding: 0 20px;
     border-radius: 14px;
     font-size: 11px;
@@ -649,6 +707,7 @@ p, label {
 
 .jl-btn-medium {
     height: 38px;
+    line-height: 38px;
     padding: 0 27px;
     border-radius: 19px;
     font-size: 14px;
@@ -656,6 +715,7 @@ p, label {
 
 .jl-btn-large {
     height: 45px;
+    line-height: 45px;
     padding: 0 35px;
     border-radius: 23px;
     font-size: 16px;
@@ -861,6 +921,18 @@ p, label {
 /* Preloader */
 .jl-fade-out {
     animation: fadeOut 2s forwards ease-out;
+}
+
+.jl-fade-from-left{
+    animation: fadeFromLeft 2s 0.7s forwards cubic-bezier(0,1.01,.32,1);
+}
+
+.jl-scale-right {
+    animation: scaleRight 0.7s 0.2s  forwards cubic-bezier(0,1.01,.32,1);
+}
+
+.jl-scale-up {
+    animation: scaleUp 0.5s 0.5s  forwards cubic-bezier(0,1.01,.32,1);
 }
 
 /* Painel dos botões de navegação */

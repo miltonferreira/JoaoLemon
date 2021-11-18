@@ -19,8 +19,11 @@ var sliderPos = 0;  // pega tamanho do container dos sliders
 var currentSlide = document.querySelector('.jl-current-slide');
 var totalSlide = document.querySelector('.jl-total-slide');
 var currentCounter = 1;
+
 var navItems = document.querySelectorAll('.jl-item-navigator a');
 var navCounter = document.querySelector('.jl-navigator-counter span');
+
+
 
 // passa larguras dinamicas
 
@@ -38,6 +41,7 @@ sliderList.style.width = sliderListWidth+'px';
 
 // HANDLERS
 
+// Animação de avançar
 var nextSlideAnim = ()=> {
     let lastItem = sliderListWidth - containerWidth;
 
@@ -48,10 +52,12 @@ var nextSlideAnim = ()=> {
 
     anime({
         targets: sliderList,
-        translateX: sliderPos
+        translateX: sliderPos,
+        easing: 'cubicBezier(0,1.01,.32,1)' // https://cubic-bezier.com/#.17,.67,.83,.67
     });
 }
 
+// animação de volta
 var prevSlideAnim = ()=> {
     if((sliderPos === 0))   // se for a mesma posição do primeiro item, então retorne
         return;
@@ -60,7 +66,8 @@ var prevSlideAnim = ()=> {
 
     anime({
         targets: sliderList,
-        translateX: sliderPos
+        translateX: sliderPos,
+        easing: 'cubicBezier(0,1.01,.32,1)' // https://cubic-bezier.com/#.17,.67,.83,.67
     });
 }
 
@@ -91,7 +98,7 @@ var counterRemove = ()=> {
         navCounter.innerHTML = counterFormatter(currentCounter);    // mostra no contador dos slider
 }
 
-//Set Active Nave
+//Set Active Nav
 
 var setActiveNav = ()=>{
     for(var nv = 0; nv < navItems.length; nv++){
@@ -107,7 +114,24 @@ var setActiveNav = ()=>{
     }
 }
 
+//Set Active Slide
+
+var setActiveSlide = ()=>{
+    for(var sld = 0; sld < sliderItem.length; sld++){
+        let mySlideNum = parseInt(sliderItem[sld].getAttribute('data-slide'));
+        if(mySlideNum === currentCounter){
+            sliderItem[sld].classList.add('jl-slide-active');
+            sliderItem[sld].querySelector('.jl-portfolio-item-box').classList.add('jl-scale-right');        // chama animação do slide
+            sliderItem[sld].querySelector('.jl-portfolio-item-thumb img').classList.add('jl-scale-up');     // chama animação da imagem do slide
+            sliderItem[sld].querySelector('.jl-portfolio-item-info').classList.add('jl-fade-from-left');     // chama animação da imagem do slide
+        }
+    }
+}
+
 var changeActive = ()=>{
+
+    // NAV -------------------------------------------------------------
+    // limpa as classes para add o ativo na cena
     for(var rm = 0; rm < navItems.length; rm++){
         
         // diminui tamanho da linha do slide ativo
@@ -119,7 +143,22 @@ var changeActive = ()=>{
         navItems[rm].classList.remove('jl-item-active');
     }
 
-    setActiveNav(); 
+    setActiveNav();
+
+    // Slide -------------------------------------------------------------
+    // limpa as classes para add o ativo na cena
+    for(var rms = 0; rms < sliderItem.length; rms++){
+        sliderItem[rms].classList.remove('jl-slide-active');
+        // Limpa animação dentro do Slide ------------------------------------------
+        sliderItem[rms].querySelector('.jl-portfolio-item-box').classList.remove('jl-scale-right');        // chama animação do slide
+        sliderItem[rms].querySelector('.jl-portfolio-item-thumb img').classList.remove('jl-scale-up');     // chama animação da imagem do slide
+        sliderItem[rms].querySelector('.jl-portfolio-item-info').classList.remove('jl-fade-from-left');     // chama animação da imagem do slide
+    }
+
+    setActiveSlide();
+    
+    
+
 }
 
 //ACTIONS
