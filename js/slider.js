@@ -3,7 +3,7 @@
 // declaração variaveis do slider
 var sliderContainer = document.querySelector('.jl-slider-container');
 var sliderList = document.querySelector('.jl-slider-list');
-var sliderItem = document.querySelectorAll('.jl-slider-item');
+var sliderItem = document.querySelectorAll('.jl-portfolio-item');
 const sliderTotalItems = sliderItem.length; // pega total dos sliders
 
 var sliderListWidth = null;     // pega tamanho da lista
