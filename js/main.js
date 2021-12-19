@@ -39,11 +39,19 @@ for(var i = 0; i < toggleModal.length; i++){
 
 var myScrollDown = document.querySelector('.jl-scroll-down');
 
-var waypoint = new Waypoint({
-    element: myScrollDown,
-    handler: function() {
-        myScrollDown.classList.toggle('jl-fade-out');
-    },
-    offset: '80%'
-});
+if(myScrollDown != null){
+    var waypoint = new Waypoint({
+        element: myScrollDown,
+        handler: function() {
+            myScrollDown.classList.toggle('jl-fade-out');
+        },
+        offset: '80%'
+    });
+}
 
+// redimensionada altura da section gallery
+
+var postGallery = document.querySelector('.jl-post-gallery');
+var postGalleryHeight = postGallery.clientHeight;
+
+postGallery.style.height = (postGalleryHeight - 270)+'px';  // diminuir -270px
